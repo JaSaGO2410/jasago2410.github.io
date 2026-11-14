@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e7">
+  <meta name="description" content="Web personal de Jacobo Sanz. Música, poemas, escritura y otras formas de meterse en líos.">
+  <meta property="og:title" content="Jacobo Sanz — Música, escritura y otras cosas">
+  <meta property="og:description" content="Canciones, poemas y otras formas de meterme en líos.">
+  <meta property="og:type" content="website">
+  <title>Jacobo Sanz — Música y escritura</title>
+  <style>
+    :root{--paper:#f3f0e7;--ink:#211f1e;--soft:#e6dfd2;--red:#bd3b32;--muted:#676159;--stroke:#c9c1b4;--accent:#e0b767;--max:1240px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+    body::before{content:"";position:fixed;inset:0;z-index:8;pointer-events:none;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.37'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible{outline:3px solid var(--red);outline-offset:5px}
+    button{font:inherit}img,svg{max-width:100%}::selection{background:#e9b6a9;color:var(--ink)}
+    .wrap{width:min(calc(100% - 72px),var(--max));margin-inline:auto}
+    .eyebrow,.smallcaps,.chip,.nav a,.link,.button,.foot,.meta,.tag,.section-label{font-family:Arial,Helvetica,sans-serif}
+    .header{position:relative;z-index:10;border-bottom:1px solid var(--ink)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;min-height:88px;gap:24px}
+    .logo{font-family:Impact,'Arial Narrow',sans-serif;font-stretch:condensed;letter-spacing:-.035em;font-size:clamp(30px,3.3vw,47px);line-height:1;white-space:nowrap}
+    .nav{display:flex;gap:clamp(14px,2.4vw,34px);align-items:center}.nav a{font-size:13px;font-weight:700;letter-spacing:.01em;padding:12px 0;position:relative}
+    .nav a:hover::after{content:"";height:3px;background:var(--red);position:absolute;bottom:4px;left:0;right:0;transform:rotate(-2deg)}
+    .menu-toggle{display:none;background:transparent;border:1px solid var(--ink);width:43px;height:42px;align-items:center;justify-content:center;font-size:23px;cursor:pointer}
+    .hero{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);min-height:600px;gap:35px;padding-block:44px 62px;align-items:center}
+    .hero-copy{position:relative;padding-block:12px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.19em;font-weight:800;margin:0 0 24px}
+    h1,h2,h3,p{margin-top:0}h1{font-size:clamp(50px,5.55vw,88px);line-height:.99;letter-spacing:-.062em;margin:0 0 26px;max-width:690px}
+    .underline{position:relative;display:inline-block;z-index:0;white-space:nowrap}.underline::after{content:"";position:absolute;left:3px;right:-2px;bottom:0;height:7px;background:var(--red);transform:rotate(-2deg);z-index:-1;opacity:.85}
+    .intro{max-width:460px;font-size:19px;line-height:1.52;margin-bottom:28px}
+    .cta{display:flex;gap:13px;flex-wrap:wrap}.button{display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:11px 25px;font-weight:800;font-size:13px;border:1.5px solid var(--ink);transition:transform .2s,background .2s}
+    .button:hover{transform:translateY(-3px)}.button.primary{background:var(--red);border-color:var(--red);color:#fff}.button.ghost:hover{background:#e9e2d5}
+    .asterisk{font-size:42px;color:var(--red);font-family:Georgia,serif;line-height:1}.aside-note{display:flex;align-items:center;gap:13px;font-size:13px;font-style:italic;margin-top:37px;color:#51483f}
+    .hero-art{width:100%;aspect-ratio:1.08;position:relative;box-shadow:11px 12px 0 #d5cbba;transform:rotate(1.2deg);overflow:hidden;background:#2b2824}
+    .hero-art svg{display:block;width:100%;height:100%;object-fit:cover}.hero-art::after{content:"";height:21px;width:120px;position:absolute;right:-20px;bottom:12px;transform:rotate(-9deg);background:#af382eaa}
+    .divider{border-top:1px solid var(--stroke)}
+    .section{padding:76px 0}.section-heading{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:30px}
+    .section-label{color:var(--red);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800}
+    h2{font-size:clamp(40px,5vw,65px);letter-spacing:-.05em;line-height:1.03;margin-bottom:0}h3{font-size:clamp(24px,2.8vw,37px);letter-spacing:-.04em;line-height:1.1;margin-bottom:12px}
+    .section-desc{font-size:17px;max-width:420px;margin:0;color:var(--muted)}
+    .feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .feature{border:1px solid var(--stroke);background:#eee8dd;display:flex;flex-direction:column;overflow:hidden;transition:transform .2s}.feature:hover{transform:translateY(-4px)}
+    .art{height:clamp(250px,27vw,385px);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .art-maceta{background:#252b2a}.art-maceta::before{content:"";position:absolute;width:155%;height:37%;left:-20%;top:39%;background:#ae332d;transform:rotate(-14deg)}.art-maceta::after{content:"";position:absolute;width:55%;height:145%;left:21%;top:-20%;border:35px solid #c7b7a0;border-radius:50%;opacity:.25;transform:rotate(23deg)}
+    .poster-text{position:relative;font-family:Impact,'Arial Narrow',sans-serif;font-size:clamp(82px,9vw,151px);line-height:.8;letter-spacing:-.035em;color:#f4ede0;transform:rotate(-7deg);text-shadow:4px 7px 0 #1c1d1d;z-index:2}
+    .poster-sticker{position:absolute;right:25px;top:22px;transform:rotate(12deg);border:2px solid #edd6b9;color:#edd6b9;padding:4px 10px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:.14em;font-weight:800}
+    .art-orador{background:#a64a3d}.orador-sun{position:absolute;width:270px;height:270px;border-radius:50%;background:#edc57d;box-shadow:0 0 0 19px #aa433c,0 0 0 22px #ebba7d;left:50%;top:49%;transform:translate(-50%,-50%)}
+    .orador-lines{position:absolute;inset:0;background:repeating-linear-gradient(170deg,transparent 0 36px,#472a27 37px 40px,transparent 41px 80px);opacity:.45}.orador-title{position:relative;color:#2b2423;font-family:Georgia,serif;font-weight:bold;text-align:center;font-size:clamp(37px,5vw,69px);line-height:.85;letter-spacing:-.05em;transform:rotate(-6deg);text-shadow:1px 2px #fff8;z-index:1}.orador-title span{display:block;font-size:.5em;margin:14px}
+    .feature-body{padding:28px 29px 30px;flex:1;display:flex;flex-direction:column}.tag{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:var(--red);margin:0 0 12px}.feature-body p{font-size:16px;max-width:490px;line-height:1.55;margin-bottom:24px}.link{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:13px;border-bottom:2px solid var(--red);width:max-content;padding-bottom:3px;margin-top:auto}.link:hover{color:var(--red)}.expand{margin-top:auto}.expand summary{cursor:pointer;list-style:none}.expand summary::-webkit-details-marker{display:none}.expand[open] p{padding-top:17px;margin:0;font-size:15px}
+    .writing{background:#e3d8c9;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
+    .writing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:34px}
+    .book{min-height:300px;border:1px solid #bfb2a0;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:25px 25px 29px;overflow:hidden}
+    .book:first-child{background:#e5d6be}.book:nth-child(2){background:#2f3e45;color:#ede6dc}.book:last-child{background:#d3ab95}
+    .book:before{content:"";width:240px;height:240px;position:absolute;right:-78px;top:42px;border-radius:50%;border:32px solid currentColor;opacity:.1;pointer-events:none}
+    .book .number{font:700 12px Arial,sans-serif;letter-spacing:.15em}.book-title{font-size:clamp(29px,3vw,43px);line-height:1.03;letter-spacing:-.045em;position:relative;max-width:235px}.book-sub{font:12px Arial,sans-serif;letter-spacing:.045em;opacity:.8;position:relative}
+    .book:last-child .book-title{font-style:italic}.book:last-child:before{transform:rotate(15deg);border-radius:0}
+    .tiny-note{font-size:13px;color:#6e6259;margin-top:15px}
+    .notebook-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:45px;align-items:center}
+    .notebook-panel{background:#d7c8b4;padding:40px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;position:relative;border:1px solid var(--stroke);transform:rotate(-1deg)}
+    .notebook-panel:after{content:"";position:absolute;width:52%;height:8px;background:var(--red);bottom:34px;left:38px;transform:rotate(-1deg)}
+    .notebook-panel .scribble{font-size:60px;line-height:1;color:#9b382f}.notebook-panel p{font-size:clamp(24px,3vw,39px);line-height:1.15;letter-spacing:-.03em;margin:0 0 13px;max-width:540px}
+    .notebook-side{max-width:320px}.notebook-side p{color:var(--muted);font-size:17px}
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;padding-top:0}
+    .about-visual{background:#282d2c;min-height:330px;position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:36px;color:#f2e9db;overflow:hidden}
+    .about-visual .big-star{font-size:210px;color:#bd473a;line-height:.8;position:absolute;right:-9px;top:9px;transform:rotate(19deg)}.about-visual .about-marker{font:800 12px Arial,sans-serif;letter-spacing:.13em;z-index:1}.about-visual .about-title{font-size:clamp(37px,4vw,62px);line-height:1;letter-spacing:-.055em;max-width:330px;position:relative;z-index:1}.about-copy p{font-size:19px;max-width:515px;margin:24px 0 0;line-height:1.6}
+    .contact{background:#bd3b32;color:#fff5eb;padding:58px 0}.contact-layout{display:flex;align-items:center;justify-content:space-between;gap:30px}.contact h2{margin:8px 0 16px}.contact p{max-width:690px;font-size:17px;margin:0}.contact .contact-note{border:1px solid #f5e9d088;padding:18px 22px;max-width:260px;font:700 12px/1.55 Arial,sans-serif;letter-spacing:.025em;flex:0 0 260px}
+    .footer{display:flex;justify-content:space-between;align-items:center;gap:25px;min-height:82px}.foot{font-size:12px;font-weight:700}.footer .muted{color:var(--muted)}
+    @media(max-width:960px){.wrap{width:min(calc(100% - 48px),var(--max))}.hero{grid-template-columns:1fr 1fr;gap:25px;min-height:0}.intro{font-size:17px}h1{font-size:clamp(46px,5.8vw,69px)}.nav{gap:17px}.nav a{font-size:12px}.writing-grid{gap:13px}.book{padding:20px;min-height:265px}}
+    @media(max-width:740px){.wrap{width:min(calc(100% - 34px),var(--max))}.header-inner{min-height:70px}.logo{font-size:35px}.menu-toggle{display:flex}.nav{display:none;position:absolute;top:70px;left:0;right:0;background:var(--paper);border-bottom:2px solid var(--ink);padding:20px 17px 25px;flex-direction:column;align-items:flex-start;gap:3px}.nav.open{display:flex}.nav a{font-size:17px;padding:9px 0}.hero{grid-template-columns:1fr;padding:42px 0 58px;gap:43px}.hero-copy{padding:0}.eyebrow{margin-bottom:20px}h1{font-size:clamp(47px,11.1vw,73px);max-width:650px}.intro{max-width:580px}.hero-art{width:100%;aspect-ratio:1.16;transform:rotate(.5deg);box-shadow:7px 8px 0 #d5cbba}.section{padding:59px 0}.section-heading{display:block}.section-desc{margin-top:13px}.feature-grid{grid-template-columns:1fr}.art{height:320px}.poster-text{font-size:clamp(100px,16vw,140px)}.writing-grid{grid-template-columns:1fr 1fr}.book{min-height:280px}.writing-grid .book:last-child{grid-column:span 2;min-height:220px}.notebook-grid,.about{grid-template-columns:1fr;gap:26px}.about{padding-top:0}.notebook-panel{min-height:270px;padding:27px}.notebook-panel:after{left:25px;bottom:25px}.notebook-side{max-width:none}.contact-layout{display:block}.contact .contact-note{max-width:none;margin-top:24px}.footer{min-height:95px}}
+    @media(max-width:460px){h1{font-size:clamp(47px,11.6vw,59px)}.underline{white-space:normal}.writing-grid{grid-template-columns:1fr}.writing-grid .book:last-child{grid-column:auto;min-height:270px}.book{min-height:270px}.about-visual{min-height:270px}.art{height:255px}.poster-text{font-size:77px}.orador-title{font-size:47px}.intro{font-size:16px}.aside-note{font-size:12px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <header class="header" id="inicio">
+    <div class="wrap header-inner">
+      <a class="logo" href="#inicio" aria-label="Jacobo Sanz, volver al inicio">JACOBO SANZ</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+      <nav class="nav" id="menu" aria-label="Navegación principal">
+        <a href="#musica">Música</a><a href="#escritura">Escritura</a><a href="#cuaderno">Cuaderno</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Música · escritura · otras cosas</p>
+        <h1 id="hero-title">Canciones, poemas y otras formas de <span class="underline">meterme en líos.</span></h1>
+        <p class="intro">Aquí conviven canciones, textos, proyectos y algunas obsesiones perfectamente discutibles.</p>
+        <div class="cta"><a class="button primary" href="#musica">Ver música ↗</a><a class="button ghost" href="#escritura">Ver escritura ↗</a></div>
+        <p class="aside-note"><span class="asterisk" aria-hidden="true">✳</span><span>Si has llegado hasta aquí, probablemente ya es tarde.</span></p>
+      </div>
+      <div class="hero-art" role="img" aria-label="Ilustración original de un escenario con guitarra, amplificador y micrófono, estilo cartel indie">
+        <svg viewBox="0 0 800 740" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+          <defs><radialGradient id="light"><stop offset="0" stop-color="#ad6c45"/><stop offset=".43" stop-color="#544239"/><stop offset="1" stop-color="#272b2b"/></radialGradient><linearGradient id="shine" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#d59a6a"/><stop offset="1" stop-color="#743c30"/></linearGradient><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".13" numOctaves="2" seed="6" result="noise"/><feColorMatrix in="noise" type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".11"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter></defs>
+          <rect width="800" height="740" fill="url(#light)"/>
+          <path d="M0 90 L800 24 M0 320 L800 244 M-50 620 L840 530" stroke="#bba68d" stroke-width="3" opacity=".13"/>
+          <rect x="492" y="155" width="250" height="270" fill="#242826" stroke="#8a735c" stroke-width="13"/>
+          <rect x="513" y="175" width="207" height="221" fill="#43433a"/>
+          <path d="M525 180v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216m15-216v216" stroke="#241f1e" stroke-width="4"/>
+          <rect x="470" y="422" width="290" height="185" rx="6" fill="#171c1e" stroke="#ae8765" stroke-width="12"/>
+          <rect x="488" y="450" width="255" height="138" fill="#343734"/>
+          <path d="M490 466h249M490 485h249M490 504h249M490 523h249M490 542h249M490 561h249M490 580h249" stroke="#817560" stroke-width="4" opacity=".4"/>
+          <path d="M70 660C120 550 213 600 280 629c104 52 164-21 257-11s115 48 184 6" stroke="#b58a66" stroke-width="10" fill="none" opacity=".4"/>
+          <ellipse cx="390" cy="683" rx="420" ry="53" fill="#1a1c1b" opacity=".6"/>
+          <path d="M202 143l90 500" stroke="#121717" stroke-width="10"/><path d="M174 143h135" stroke="#14191b" stroke-width="10" stroke-linecap="round"/><rect x="286" y="119" width="67" height="27" rx="14" transform="rotate(-8 286 119)" fill="#292c2a" stroke="#a5a39a" stroke-width="4"/><path d="M292 647l-82 62m82-62 72 59" stroke="#181c1e" stroke-width="9"/>
+          <g transform="rotate(15 410 365)"><path d="M418 30h31l-2 420h-29z" fill="#b88d64" stroke="#281c19" stroke-width="5"/><path d="M423 70h23v321h-23" fill="#81684e"/><path d="M420 80h26M420 118h26M420 156h26M420 194h26M420 232h26M420 270h26M420 308h26" stroke="#e9bb83" stroke-width="3"/><path d="M421 25l-15-37-18-8 5-15 45 14 11 49z" fill="#b99566" stroke="#251f1d" stroke-width="5"/><ellipse cx="436" cy="-14" rx="5" ry="6" fill="#f0d8b6"/><path d="M407 421c-30-28-92 7-97 58-8 62 34 86 47 112 13 27 1 65 74 70 70 4 92-38 86-84-5-40-34-47-38-75-4-27-6-67-36-82z" fill="url(#shine)" stroke="#231e1d" stroke-width="9"/><path d="M407 424c24 30 31 59 25 89-6 29 4 66 49 76" fill="none" stroke="#d7b48a" stroke-width="7" opacity=".5"/><rect x="395" y="462" width="68" height="36" rx="4" fill="#262221" stroke="#e0c7ab" stroke-width="4"/><rect x="401" y="527" width="74" height="21" rx="3" fill="#292424" stroke="#e0c7ab" stroke-width="3"/><circle cx="473" cy="585" r="8" fill="#e9d3af"/><circle cx="454" cy="598" r="8" fill="#e9d3af"/><path d="M435 20v500M440 20v500" stroke="#e1d1b7" stroke-width="1.2"/></g>
+          <path d="M-80 710L800 625v150H-80z" fill="#251f1e" opacity=".55"/>
+          <rect x="38" y="36" width="188" height="33" fill="#c7a275" transform="rotate(-6 38 36)" opacity=".8"/>
+          <text x="60" y="63" font-family="Arial,sans-serif" letter-spacing="6" font-weight="bold" font-size="18" fill="#22201e" transform="rotate(-6 60 63)">SIDE A / SIDE B</text>
+          <text x="46" y="700" font-family="Impact,Arial Narrow, sans-serif" font-size="90" letter-spacing="-2" fill="#eadcc9" opacity=".8">PLAY IT LOUD</text>
+          <rect width="800" height="740" filter="url(#grain)" opacity=".3"/>
+        </svg>
+      </div>
+    </section>
+    <div class="wrap divider"></div>
+    <section class="wrap section" id="musica" aria-labelledby="musica-title">
+      <div class="section-heading"><div><span class="section-label">01 / Lo que suena</span><h2 id="musica-title">Música<span style="color:var(--red)">.</span></h2></div><p class="section-desc">Bandas, discos y canciones. Unos cuantos años intentando que suene como lo tenía en la cabeza.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="art art-maceta" aria-label="Ilustración tipográfica de MACETA"><span class="poster-sticker">INDIE POP · TOLEDO</span><div class="poster-text">MACETA</div></div><div class="feature-body"><p class="tag">Proyecto musical</p><h3>MACETA</h3><p>Canciones, guitarras, melodías y la alegría —a veces relativa— de tocar en grupo.</p><details class="expand"><summary class="link">Un poco más <span aria-hidden="true">＋</span></summary><p>MACETA es un proyecto de pop de guitarras con canciones propias y una buena dosis de melodías. Próximamente añadiremos las grabaciones, las fotos y las fechas de conciertos.</p></details></div></article>
+        <article class="feature"><div class="art art-orador" aria-label="Ilustración original de El Orador Bluff"><div class="orador-sun"></div><div class="orador-lines"></div><div class="orador-title"><span>EL</span>ORADOR<br>BLUFF</div></div><div class="feature-body"><p class="tag">Proyecto personal</p><h3>El Orador Bluff</h3><p>Canciones propias y una habitación llena de ideas que, por alguna razón, terminaron convertidas en música.</p><details class="expand"><summary class="link">Un poco más <span aria-hidden="true">＋</span></summary><p>El Orador Bluff es mi proyecto musical personal. Tiene un álbum publicado en 2019. Esta página reunirá sus canciones y materiales.</p></details></div></article>
+      </div>
+    </section>
+    <section class="writing section" id="escritura" aria-labelledby="escritura-title"><div class="wrap">
+      <div class="section-heading"><div><span class="section-label">02 / Lo que se escribe</span><h2 id="escritura-title">Escritura<span style="color:var(--red)">.</span></h2></div><p class="section-desc">Poemas, letras y textos breves. Algunas cosas escritas para entenderlas; otras, para complicarlas un poco.</p></div>
+      <div class="writing-grid">
+        <article class="book"><span class="number">POEMARIO / 01</span><div class="book-title">Contra<br>tiempos.</div><span class="book-sub">Poesía · 2002—2009</span></article>
+        <article class="book"><span class="number">POEMARIO / 02</span><div class="book-title">Dichoso<br>asterisco*</div><span class="book-sub">Las horas de Isabel</span></article>
+        <article class="book"><span class="number">ARCHIVO / EN PREPARACIÓN</span><div class="book-title">Palabras<br>con música.</div><span class="book-sub">Letras, borradores y otras cosas</span></article>
+      </div>
+      <p class="tiny-note">Esta sección irá incorporando textos reales. De momento, los libros están presentados sin publicar poemas que no hayas elegido.</p>
+    </div></section>
+    <section class="wrap section" id="cuaderno" aria-labelledby="cuaderno-title">
+      <div class="section-heading"><div><span class="section-label">03 / Sin periodicidad garantizada</span><h2 id="cuaderno-title">Cuaderno<span style="color:var(--red)">.</span></h2></div></div>
+      <div class="notebook-grid"><div class="notebook-panel"><span class="scribble" aria-hidden="true">✳</span><p>Un lugar para canciones, ideas sueltas, libros, películas y otras distracciones necesarias.</p></div><div class="notebook-side"><h3>Próximamente. O cuando toque.</h3><p>Sin calendario editorial, promesas de frecuencia ni la menor intención de optimizar la productividad.</p></div></div>
+    </section>
+    <section class="wrap about section" id="sobre-mi" aria-labelledby="sobre-title">
+      <div class="about-visual" role="img" aria-label="Cartel tipográfico: cantar, escribir, repetir"><span class="about-marker">UNA BIOGRAFÍA EN TRES VERBOS</span><span class="big-star" aria-hidden="true">✳</span><span class="about-title">Cantar.<br>Escribir.<br>Repetir.</span></div>
+      <div class="about-copy"><span class="section-label">04 / La persona detrás del ruido</span><h2 id="sobre-title">Sobre mí<span style="color:var(--red)">.</span></h2><p>Soy Jacobo Sanz. Hago música, escribo poemas y doy clase. A veces consigo que las tres cosas convivan sin discutir demasiado.</p><p>Esta web es un lugar para reunir lo que voy haciendo, lo que hice hace tiempo y lo que todavía está por hacer.</p></div>
+    </section>
+    <section class="contact" id="contacto" aria-labelledby="contacto-title"><div class="wrap contact-layout"><div><span class="section-label" style="color:#ffe0cb">05 / Seguimos en contacto</span><h2 id="contacto-title">¿Hablamos<span style="color:#e9be7c">?</span></h2><p>Para música, textos, conciertos, colaboraciones o simplemente para decir hola. Aquí irán tu correo artístico y los enlaces a tus perfiles, cuando los facilites.</p></div><div class="contact-note">PENDIENTE DE COMPLETAR<br><span style="font-weight:400">Correo, Spotify, Bandcamp e Instagram. Mejor poner los auténticos que inventárnoslos.</span></div></div></section>
+  </main>
+  <footer class="wrap footer"><a class="logo" style="font-size:28px" href="#inicio">JACOBO SANZ</a><span class="foot muted">© <span id="year">2026</span> · Hecho sin mucha solemnidad.</span></footer>
+  <script>
+    const toggle=document.getElementById('menuToggle');const menu=document.getElementById('menu');
+    toggle.addEventListener('click',()=>{const opening=!menu.classList.contains('open');menu.classList.toggle('open',opening);toggle.setAttribute('aria-expanded',String(opening));toggle.setAttribute('aria-label',opening?'Cerrar menú':'Abrir menú');toggle.textContent=opening?'×':'☰';});
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menú');toggle.textContent='☰';}));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';toggle.focus();}});
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
